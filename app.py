@@ -20,9 +20,20 @@ def summarize(values):
     return {"count": count, "sum": total, "average": average}
 
 
+def fib(n: int) -> list:
+    """Return the first n Fibonacci numbers as a list."""
+    if n < 0:
+        raise ValueError("n must be non-negative")
+    seq = [0, 1]
+    while len(seq) < n:
+        seq.append(seq[-1] + seq[-2])
+    return seq[:n]
+
+
 def main():
     print("add(2, 3) =", add(2, 3))
     print("is_even(4) =", is_even(4))
+    print("fib(10) =", fib(10))
     print("summarize([1, 2, 3, 4]) =", summarize([1, 2, 3, 4]))
 
 

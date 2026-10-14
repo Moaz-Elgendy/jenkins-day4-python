@@ -1,6 +1,6 @@
 import unittest
 
-from app import add, is_even, summarize
+from app import add, fib, is_even, summarize
 
 
 class TestApp(unittest.TestCase):
@@ -22,6 +22,15 @@ class TestApp(unittest.TestCase):
             summarize([]),
             {"count": 0, "sum": 0, "average": 0.0},
         )
+
+    def test_fib(self):
+        self.assertEqual(fib(0), [])
+        self.assertEqual(fib(1), [0])
+        self.assertEqual(fib(10), [0, 1, 1, 2, 3, 5, 8, 13, 21, 34])
+
+    def test_fib_negative(self):
+        with self.assertRaises(ValueError):
+            fib(-1)
 
 
 if __name__ == "__main__":
